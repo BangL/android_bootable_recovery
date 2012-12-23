@@ -511,9 +511,7 @@ int control_usb_storage_for_lun(Volume* vol, bool enable) {
 #ifdef TARGET_USE_CUSTOM_LUN_FILE_PATH
         TARGET_USE_CUSTOM_LUN_FILE_PATH,
 #endif
-        "/sys/devices/platform/usb_mass_storage/lun%d/file",
-        "/sys/class/android_usb/android0/f_mass_storage/lun/file",
-        "/sys/class/android_usb/android0/f_mass_storage/lun_ex/file",
+        "/sys/devices/platform/fsl-tegra-udc/gadget/lun%d/file",
         NULL
     };
 
@@ -578,7 +576,6 @@ void show_mount_usb_storage_menu()
     // Build a list of Volume objects; some or all may not be valid
     Volume* volumes[MAX_NUM_USB_VOLUMES] = {
         volume_for_path("/sdcard"),
-        volume_for_path("/emmc"),
         volume_for_path("/external_sd")
     };
 
